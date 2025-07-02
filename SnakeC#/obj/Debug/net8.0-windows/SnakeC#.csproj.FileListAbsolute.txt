@@ -1,0 +1,16 @@
+D:\Lenguajes\SnakeC#\SnakeC#\bin\Debug\net8.0-windows\SnakeC#.exe
+D:\Lenguajes\SnakeC#\SnakeC#\bin\Debug\net8.0-windows\SnakeC#.deps.json
+D:\Lenguajes\SnakeC#\SnakeC#\bin\Debug\net8.0-windows\SnakeC#.runtimeconfig.json
+D:\Lenguajes\SnakeC#\SnakeC#\bin\Debug\net8.0-windows\SnakeC#.dll
+D:\Lenguajes\SnakeC#\SnakeC#\bin\Debug\net8.0-windows\SnakeC#.pdb
+D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\SnakeC_.Form1.resources
+D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\SnakeC#.csproj.GenerateResource.cache
+D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\SnakeC#.GeneratedMSBuildEditorConfig.editorconfig
+D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\SnakeC#.AssemblyInfoInputs.cache
+D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\SnakeC#.AssemblyInfo.cs
+D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\SnakeC#.csproj.CoreCompileInputs.cache
+D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\SnakeC#.dll
+D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\refint\SnakeC#.dll
+D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\SnakeC#.pdb
+D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\SnakeC#.genruntimeconfig.cache
+D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\ref\SnakeC#.dll
