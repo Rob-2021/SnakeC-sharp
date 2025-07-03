@@ -7,7 +7,7 @@ namespace SnakeC_
         {
             InitializeComponent();
 
-            oGame = new Game(pictureBox1);
+            oGame = new Game(pictureBox1, labelPoint);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -24,6 +24,31 @@ namespace SnakeC_
         {
             oGame.Show();
             oGame.Next();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.W)
+            {
+                oGame.ActualDirection = Game.Direccion.Up;
+            }
+            if (e.KeyCode == Keys.S)
+            {
+                oGame.ActualDirection = Game.Direccion.Down;
+            }
+            if (e.KeyCode == Keys.D)
+            {
+                oGame.ActualDirection = Game.Direccion.Right;
+            }
+            if (e.KeyCode == Keys.A)
+            {
+                oGame.ActualDirection = Game.Direccion.Left;
+            }
+        }
+
+        private void labelPoints_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -16,7 +16,12 @@ namespace SnakeC_
         public enum Direccion { Right, Left, Up, Down };
         public Direccion ActualDirection = Direccion.Right;
 
+        private Square Food = null;
+        private Random oRandom = new Random();
+        private int Points = 0;
+
         PictureBox oPicureBox;
+        Label labelPoint;
 
         private int InitialPositionX
         {
@@ -34,9 +39,10 @@ namespace SnakeC_
             }
         }
 
-        public Game(PictureBox oPictureBox)
+        public Game(PictureBox oPictureBox, Label labelPoint)
         {
             this.oPicureBox = oPictureBox;
+            this.labelPoint = labelPoint;
             Reset();
         }
         
@@ -55,6 +61,8 @@ namespace SnakeC_
                     squares[i, j] = 0;
                 }
             }
+
+            Points = 0;
         }
 
         public void Show()
@@ -71,11 +79,22 @@ namespace SnakeC_
                 }
             }
 
+            //mostramos la comida
+            if (Food != null)
+                PaintPixel(bmp, Food.X, Food.Y, Color.Green);
+
             oPicureBox.Image = bmp;
+
+
+
+            labelPoint.Text = "Puntos: " + Points.ToString();
         }
 
         public void Next()
         {
+            if (Food == null)
+                GetFood();
+
             switch (ActualDirection)
             {
                 case Direccion.Right:
@@ -85,8 +104,51 @@ namespace SnakeC_
                         else
                             Snake[0].X++;
                         break;
-                    }                   
+                    }
+                case Direccion.Left:
+                    {
+                        if (Snake[0].X == 0)
+                            Snake[0].X = lengthMap - 1;
+                        else
+                            Snake[0].X--;
+                        break;
+                    }
+                case Direccion.Down:
+                    {
+                        if (Snake[0].Y == (lengthMap - 1))
+                            Snake[0].Y = 0;
+                        else
+                            Snake[0].Y++;
+                        break;
+                    }
+                case Direccion.Up:
+                    {
+                        if (Snake[0].Y == 0)
+                            Snake[0].Y = lengthMap - 1;
+                        else
+                            Snake[0].Y--;
+                        break;
+                    }
             }
+
+            SnakeEating();
+        }
+
+        private void SnakeEating()
+        {
+            if (Snake[0].X == Food.X && Snake[0].Y == Food.Y)
+            {
+                Food = null;
+                Points++; //sumando puntos
+            }
+        }
+
+        private void GetFood()
+        {
+            int X = oRandom.Next(0, lengthMap - 1);
+            int Y = oRandom.Next(0, lengthMap - 1);
+
+            Food = new Square(X, Y);
         }
 
         private void PaintPixel(Bitmap bmp, int x, int y, Color color)
@@ -95,7 +157,6 @@ namespace SnakeC_
                 for (int i = 0; i < scale; i++)
                     bmp.SetPixel(j+(x*scale), i+(y*scale), color);
         }
-
     }
 
     public class Square

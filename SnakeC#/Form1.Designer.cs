@@ -32,6 +32,7 @@
             pictureBox1 = new PictureBox();
             button1 = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
+            labelPoint = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -55,19 +56,32 @@
             // 
             // timer1
             // 
-            timer1.Interval = 1000;
+            timer1.Interval = 200;
             timer1.Tick += timer1_Tick;
+            // 
+            // labelPoint
+            // 
+            labelPoint.Location = new Point(12, 318);
+            labelPoint.Name = "labelPoint";
+            labelPoint.Size = new Size(100, 23);
+            labelPoint.TabIndex = 0;
+            labelPoint.Text = "0";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(324, 349);
+            Controls.Add(labelPoint);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            KeyPreview = true;
+            MaximizeBox = false;
             Name = "Form1";
             Text = "Snake";
             Load += Form1_Load;
+            KeyDown += Form1_KeyDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -77,5 +91,6 @@
         private PictureBox pictureBox1;
         private Button button1;
         private System.Windows.Forms.Timer timer1;
+        private Label labelPoint;
     }
 }

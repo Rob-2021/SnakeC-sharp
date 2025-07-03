@@ -14,3 +14,4 @@ D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\refint\SnakeC#.dll
 D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\SnakeC#.pdb
 D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\SnakeC#.genruntimeconfig.cache
 D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\ref\SnakeC#.dll
+D:\Lenguajes\SnakeC#\SnakeC#\obj\Debug\net8.0-windows\SnakeC#.sourcelink.json
