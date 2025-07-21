@@ -7,7 +7,7 @@ namespace SnakeC_
         {
             InitializeComponent();
 
-            oGame = new Game(pictureBox1, labelPoint);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -17,13 +17,22 @@ namespace SnakeC_
 
         private void button1_Click(object sender, EventArgs e)
         {
+            oGame = new Game(pictureBox1, labelPoint);
             timer1.Enabled = true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            oGame.Show();
-            oGame.Next();
+            if (!oGame.IsLost)
+            {
+                oGame.Show();
+                oGame.Next();
+            }
+            else
+            {
+                timer1.Enabled = false;
+                MessageBox.Show("Perdiste");
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)

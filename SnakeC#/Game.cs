@@ -39,6 +39,19 @@ namespace SnakeC_
             }
         }
 
+        public bool IsLost
+        {
+            get
+            {
+                foreach (var oSquare in Snake)
+                {
+                    if(Snake.Where(d => d.Y == oSquare.Y && d.X==oSquare.X && oSquare!=d).Count()>0)
+                        return true;
+                }
+                return false;
+            }
+        }
+
         public Game(PictureBox oPictureBox, Label labelPoint)
         {
             this.oPicureBox = oPictureBox;
@@ -95,6 +108,7 @@ namespace SnakeC_
             if (Food == null)
                 GetFood();
 
+            GetHistorySnake();
             switch (ActualDirection)
             {
                 case Direccion.Right:
@@ -131,7 +145,28 @@ namespace SnakeC_
                     }
             }
 
+            GetNextMoveSnake();
+
             SnakeEating();
+        }
+
+        private void GetNextMoveSnake()
+        {
+            if (Snake.Count > 1)
+                for (int i = 1; i < Snake.Count; i++)
+                {
+                    Snake[i].X = Snake[i - 1].x_old;
+                    Snake[i].Y = Snake[i - 1].y_old;
+                }
+        }
+
+        private void GetHistorySnake()
+        {
+            foreach (var oSquare in Snake)
+            {
+                oSquare.x_old = oSquare.X;
+                oSquare.y_old = oSquare.Y;
+            }
         }
 
         private void SnakeEating()
@@ -140,6 +175,11 @@ namespace SnakeC_
             {
                 Food = null;
                 Points++; //sumando puntos
+
+                //asignamos nuevo elemento a la serpiente
+                Square LastSquare = Snake[Snake.Count - 1];
+                Square oSquare = new Square(LastSquare.x_old, LastSquare.y_old);
+                Snake.Add(oSquare);
             }
         }
 
@@ -161,11 +201,13 @@ namespace SnakeC_
 
     public class Square
     {
-        public int X, Y;
+        public int X, Y, x_old, y_old;
         public Square(int X, int Y)
         {
             this.X = X;
             this.Y = Y;
+            this.x_old = X;
+            this.y_old = Y;
         }
     }
 }
